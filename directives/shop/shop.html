@@ -1,0 +1,6 @@
+<p>{{ cartCount }}</p>
+<div ng-repeat='product in products'>
+  <h3>{{ product.name }}</h3>
+  <p>{{ product.ingredients }}</p>
+  <button ng-click='addCart( product )'>Add to Cart</button>
+</div>
