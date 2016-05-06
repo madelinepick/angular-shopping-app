@@ -7,6 +7,7 @@ angular.module('shoppingApp')
     link: function(scope, element, attrs, fn){
       scope.products = cartService.products;
       scope.cartCount = cartService.cartCount;
+      scope.vm = {};
 
       scope.addCart = function(product){
         cartService.addCart(product);
@@ -15,13 +16,3 @@ angular.module('shoppingApp')
     }
   }
 }]);
-
-// scope.$watchCollection('cart', function(newValue, ov){
-//   scope.cartCount = newValue.length;
-// })
-// scope.$watch(function(){
-//   return cartService.myCart;
-// },
-// function(newValue){
-//   scope.cartCount = newValue.length;
-// }, true);

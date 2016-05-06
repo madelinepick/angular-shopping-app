@@ -1,10 +1,25 @@
+<label for="price">Sort by Category</label>
+<select name="Categories" ng-model="vm.search.categories">
+  <option value="dry">Dry</option>
+  <option value="lucid">Lucid</option>
+  <option value="dark">Dark</option>
+  <option value="awesome">Awesome</option>
+  <option value="spring">Spring</option>
+  <option value="warm">Warm</option>
+  <option value="hot">Hot</option>
+</select>
+<label for="price">Sort by Price</label>
+<select name="Price" ng-model="vm.price">
+  <option value="-price">Highest</option>
+  <option value="price">Lowest</option>
+</select>
 <label for="search">Search</label>
-<input type="text" name='search' value='search' ng-model="shopsearch">
+<input type="text" name='search' value='search' ng-model="vm.search.name">
 <div class='quantity'>
   <p>My Cart: {{ cartCount }}</p>
   <a ng-href="#cart">Go to Cart</a>
 </div>
-  <div ng-repeat='product in products | filter: shopsearch' class='container'>
+  <div ng-repeat='product in products | filter: vm.search | orderBy: vm.price' class='container'>
     <div class='left'>
       <img ng-src="{{ product.imageUrl }}" alt="">
     </div>
@@ -17,6 +32,14 @@
       <ul>
         <li ng-repeat='category in product.categories'>{{ category }}</li>
       </ul>
+      <label for="quantity">Quantity</label>
+      <select name="quantity" ng-model='product.quantity'>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
       <button ng-click='addCart( product )'>Add to Cart</button>
     </div>
   </div>
