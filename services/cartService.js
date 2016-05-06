@@ -1,6 +1,16 @@
 angular.module('shoppingApp')
 .service('cartService', function(){
+    var self = this;
     this.myCart = [];
+    this.cartCount = 0;
+    this.addCart = function(product){
+      self.myCart.push(product)
+      self.cartCount++;
+    };
+    this.removeCart = function (product){
+      // self.myCart.slice(product, 0)
+      // self.cartCount--;
+    };
     this.products = [
       {
           "_id": "55c8ee82152165d244b98300",
@@ -123,6 +133,6 @@ angular.module('shoppingApp')
           "__v": 0,
           "categories": ["spring", "warm","winter"]
       }
-  ]
+  ];
 
 })

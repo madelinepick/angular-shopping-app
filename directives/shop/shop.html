@@ -1,6 +1,22 @@
-<p>{{ cartCount }}</p>
-<div ng-repeat='product in products'>
-  <h3>{{ product.name }}</h3>
-  <p>{{ product.ingredients }}</p>
-  <button ng-click='addCart( product )'>Add to Cart</button>
+<label for="search">Search</label>
+<input type="text" name='search' value='search' ng-model="shopsearch">
+<div class='quantity'>
+  <p>My Cart: {{ cartCount }}</p>
+  <a ng-href="#cart">Go to Cart</a>
 </div>
+  <div ng-repeat='product in products | filter: shopsearch' class='container'>
+    <div class='left'>
+      <img ng-src="{{ product.imageUrl }}" alt="">
+    </div>
+    <div class='right'>
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price | money }}</p>
+      <p>{{ product.ingredients }}</p>
+      <p>In Stock: {{ product.inStock | yesno }}</p>
+      <h4>Categories</h4>
+      <ul>
+        <li ng-repeat='category in product.categories'>{{ category }}</li>
+      </ul>
+      <button ng-click='addCart( product )'>Add to Cart</button>
+    </div>
+  </div>

@@ -9,6 +9,7 @@ angular.module('shoppingApp')
     link: function(scope, element, attrs, fn){
       scope.products = cartService.products;
       scope.myCart = cartService.myCart;
+      scope.cartCount = cartService.cartCount;
     }
   }
 }]);

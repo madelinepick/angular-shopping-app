@@ -1,3 +1,16 @@
-<div ng-repeat='product in myCart'>
-  {{ product.name }}
+<div class='quantity'>
+  <p>My Cart: {{ cartCount }}</p>
+  <a ng-href="#/">Go to Shop</a>
+</div>
+<div ng-repeat='product in myCart track by $index' class='container'>
+  <div class='left'>
+    <img ng-src="{{ product.imageUrl }}" alt="">
+  </div>
+  <div class='right'>
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.ingredients }}</p>
+    <p>{{ product.price | money }}</p>
+    <button>Remove</button>
+    <button>Update</button>
+  </div>
 </div>

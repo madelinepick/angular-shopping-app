@@ -3,25 +3,25 @@ angular.module('shoppingApp')
   return {
     restrict: 'E',
     templateUrl: 'directives/shop/shop.html',
-    scope: {
-
-    },
+    scope: {},
     link: function(scope, element, attrs, fn){
       scope.products = cartService.products;
-      scope.myCart = cartService.myCart;
-      scope.cartCount = cartService.myCart.length;
-
-      scope.$watch(function(){
-        return cartService.myCart;
-      },
-      function(newValue){
-        scope.myCart = newValue;
-        scope.cartCount = newValue.length;
-      }, true);
+      scope.cartCount = cartService.cartCount;
 
       scope.addCart = function(product){
-        scope.myCart.push(product);
+        cartService.addCart(product);
+        scope.cartCount = cartService.cartCount;
       }
     }
   }
 }]);
+
+// scope.$watchCollection('cart', function(newValue, ov){
+//   scope.cartCount = newValue.length;
+// })
+// scope.$watch(function(){
+//   return cartService.myCart;
+// },
+// function(newValue){
+//   scope.cartCount = newValue.length;
+// }, true);

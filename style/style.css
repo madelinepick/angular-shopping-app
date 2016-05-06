@@ -1,0 +1,28 @@
+.container {
+  margin: 20px;
+  padding: 30px;
+  border: 1px solid #333;
+  clear: both;
+  display: flex;
+  flex-wrap: wrap;
+}
+.quantity {
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.quantity > p {
+  font-size: 16px;
+  font-weight: bold;
+  color: red;
+}
+.left {
+  flex: 0 0 30%;
+}
+.left > img {
+  width: 200px;
+  height: auto;
+}
+.right {
+  flex: 0 0 70%;
+}
