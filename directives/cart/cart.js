@@ -8,6 +8,15 @@ angular.module('shoppingApp')
       scope.products = cartService.products;
       scope.myCart = cartService.myCart;
       scope.cartCount = cartService.cartCount;
+      scope.showUpdate = false;
+
+      scope.removeCart = function(product){
+        cartService.removeCart(product);
+        scope.cartCount = cartService.cartCount;
+      }
+      scope.toggleUpdate = function(product){
+        cartService.toggleUpdate(product);  
+      }
     }
   }
 }]);

@@ -4,13 +4,20 @@ angular.module('shoppingApp')
     this.myCart = [];
     this.cartCount = 0;
     this.addCart = function(product){
-      self.myCart.push(product)
+      if(typeof(product.quantity) == "undefined"){
+        product.quantity = 1;
+      };
+      self.myCart.push(product);
       self.cartCount++;
     };
     this.removeCart = function (product){
-      // self.myCart.slice(product, 0)
-      // self.cartCount--;
+      var theSpot = self.myCart.indexOf(product);
+      self.myCart.splice(theSpot, 1);
+      self.cartCount--;
     };
+    this.toggleUpdate = function(){
+      scope.showUpdate = !scope.showUpdate;
+    }
     this.products = [
       {
           "_id": "55c8ee82152165d244b98300",

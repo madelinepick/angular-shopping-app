@@ -10,8 +10,18 @@
     <h3>{{ product.name }}</h3>
     <p>{{ product.ingredients }}</p>
     <p>{{ product.price | money }}</p>
-    <p>Quantity: {{ product.quantity}}</p>
-    <button>Remove</button>
-    <button>Update</button>
+    <p ng-show='!showUpdate'>Quantity: {{ product.quantity}}</p>
+    <div ng-show='showUpdate'>
+      <label for="quantity">Quantity</label>
+      <select name="quantity" ng-model='product.quantity'>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <button ng-click='removeCart(product)'>Remove</button>
+    <button ng-click='toggleUpdate()'>Update</button>
   </div>
 </div>
