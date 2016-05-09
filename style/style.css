@@ -1,6 +1,9 @@
 body {
   font-family: 'Lato', sans-serif;
   }
+a {
+  text-decoration: none;
+}
 .container {
   margin: 20px;
   padding: 30px;
@@ -28,6 +31,9 @@ body {
 }
 .right {
   flex: 0 0 70%;
+}
+.right > h3 {
+  margin-right: 15px;
 }
 .inline {
   display: inline;

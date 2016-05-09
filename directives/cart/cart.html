@@ -3,6 +3,9 @@
   <a ng-href="/">Go to Shop</a>
   <p>Total = {{ total | money}}</p>
 </div>
+<div class='container' ng-show='!(myCart.length >= 1)'>
+  <h3>Your cart is empty. Go to the <a href="/">shop</a></h3>
+</div>
 <div ng-repeat='product in myCart track by $index' class='container'>
   <div class='left'>
     <img ng-src="{{ product.imageUrl }}" alt="">
