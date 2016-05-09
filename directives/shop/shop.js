@@ -12,6 +12,7 @@ angular.module('shoppingApp')
       scope.addCart = function(product){
         cartService.addCart(product);
         scope.cartCount = cartService.cartCount;
+        cartService.updateTotal();
       }
     }
   }

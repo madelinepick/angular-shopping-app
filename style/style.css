@@ -1,3 +1,6 @@
+body {
+  font-family: 'Lato', sans-serif;
+  }
 .container {
   margin: 20px;
   padding: 30px;
@@ -25,4 +28,7 @@
 }
 .right {
   flex: 0 0 70%;
+}
+.inline {
+  display: inline;
 }

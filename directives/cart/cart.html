@@ -1,6 +1,7 @@
 <div class='quantity'>
   <p>My Cart: {{ cartCount }}</p>
-  <a ng-href="#/">Go to Shop</a>
+  <a ng-href="/">Go to Shop</a>
+  <p>Total = {{ total | money}}</p>
 </div>
 <div ng-repeat='product in myCart track by $index' class='container'>
   <div class='left'>

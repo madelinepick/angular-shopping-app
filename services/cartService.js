@@ -3,6 +3,8 @@ angular.module('shoppingApp')
     var self = this;
     this.myCart = [];
     this.cartCount = 0;
+    this.total = 0;
+
     this.addCart = function(product){
       if(typeof(product.quantity) == "undefined"){
         product.quantity = 1;
@@ -15,9 +17,14 @@ angular.module('shoppingApp')
       self.myCart.splice(theSpot, 1);
       self.cartCount--;
     };
-    this.toggleUpdate = function(){
-      scope.showUpdate = !scope.showUpdate;
+
+    this.updateTotal = function(){
+      self.total = 0;
+      for (var i = 0; i < self.myCart.length; i++) {
+        self.total += this.myCart[i].quantity * this.myCart[i].price;
+      }
     }
+
     this.products = [
       {
           "_id": "55c8ee82152165d244b98300",

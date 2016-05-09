@@ -1,5 +1,5 @@
 angular.module('shoppingApp')
-.config(function($routeProvider) {
+.config(function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/shopview.html',
@@ -9,4 +9,5 @@ angular.module('shoppingApp')
         templateUrl: 'views/cartview.html',
         controller: 'CartController'
       })
+      $locationProvider.html5Mode(true);
 });

@@ -17,16 +17,17 @@
 <input type="text" name='search' value='search' ng-model="vm.search.name">
 <div class='quantity'>
   <p>My Cart: {{ cartCount }}</p>
-  <a ng-href="#cart">Go to Cart</a>
+  <a ng-href="cart">Go to Cart</a>
 </div>
   <div ng-repeat='product in products | filter: vm.search | orderBy: vm.price' class='container'>
     <div class='left'>
       <img ng-src="{{ product.imageUrl }}" alt="">
     </div>
     <div class='right'>
-      <h3>{{ product.name }}</h3>
-      <p>{{ product.price | money }}</p>
-      <p>{{ product.ingredients }}</p>
+      <h3 class='inline'>{{ product.name }}</h3>
+      <p class='inline'>{{ product.price | money }}</p>
+      <p>Ingredients: {{ product.ingredients }}</p>
+      <p>Rating: {{ product.rating }}</p>
       <p>In Stock: {{ product.inStock | yesno }}</p>
       <h4>Categories</h4>
       <ul>
